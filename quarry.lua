@@ -1,5 +1,5 @@
 -- basic quarry using the nav system
--- ver: 0.2
+-- ver: 0.3
 
 -- Copyright (c) 2024 Aidan Yaklin
 --
