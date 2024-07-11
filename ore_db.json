@@ -1,0 +1,94 @@
+{
+  "version": "1.0",
+  "ores": {
+    "minecraft:coal_ore": ["minecraft:coal"],
+    "minecraft:iron_ore": ["minecraft:raw_iron"],
+    "minecraft:copper_ore": ["minecraft:raw_copper"],
+    "minecraft:gold_ore": ["minecraft:raw_gold"],
+    "minecraft:redstone_ore": ["minecraft:redstone"],
+    "minecraft:emerald_ore": ["minecraft:emerald"],
+    "minecraft:lapis_ore": ["minecraft:lapis_lazuli"],
+    "minecraft:diamond_ore": ["minecraft:diamond"],
+
+    "minecraft:deepslate_coal_ore": ["minecraft:coal"],
+    "minecraft:deepslate_iron_ore": ["minecraft:raw_iron"],
+    "minecraft:deepslate_copper_ore": ["minecraft:raw_copper"],
+    "minecraft:deepslate_gold_ore": ["minecraft:raw_gold"],
+    "minecraft:deepslate_redstone_ore": ["minecraft:redstone"],
+    "minecraft:deepslate_emerald_ore": ["minecraft:emerald"],
+    "minecraft:deepslate_lapis_ore": ["minecraft:lapis_lazuli"],
+    "minecraft:deepslate_diamond_ore": ["minecraft:diamond"],
+
+    "minecraft:nether_gold_ore": ["minecraft:gold_nugget"],
+    "minecraft:nether_quartz_ore": ["minecraft:nether_quartz"],
+    
+    "create:zinc_ore": ["create:raw_zinc"],
+    "create:deepslate_zinc_ore": ["create:raw_zinc"],
+    
+    "indrev:tungsten_ore": ["indrev:raw_tungsten"],
+    "indrev:tin_ore": ["indrev:raw_tin"],
+    "indrev:silver_ore": ["indrev:raw_silver"],
+    "indrev:nikolite_ore": ["indrev:nikolite_dust"],
+    "indrev:lead_ore": ["indrev:raw_lead"],
+
+    "indrev:deepslate_tungsten_ore": ["indrev:raw_tungsten"],
+    "indrev:deepslate_tin_ore": ["indrev:raw_tin"],
+    "indrev:deepslate_silver_ore": ["indrev:raw_silver"],
+    "indrev:deepslate_nikolite_ore": ["indrev:nikolite_dust"],
+    "indrev:deepslate_lead_ore": ["indrev:raw_lead"],
+
+    "modern_industrialization:antimony_ore": ["modern_industrialization:raw_antimony"],
+    "modern_industrialization:bauxite_ore": ["modern_industrialization:raw_bauxite"],
+    "modern_industrialization:iridium_ore": ["modern_industrialization:raw_iridium"],
+    "modern_industrialization:lead_ore": ["modern_industrialization:raw_lead"],
+    "modern_industrialization:lignite_coal_ore": ["modern_industrialization:lignite_coal"],
+    "modern_industrialization:monazite_ore": ["modern_industrialization:monazite_dust"],
+    "modern_industrialization:nickel_ore": ["modern_industrialization:raw_nickel"],
+    "modern_industrialization:platinum_ore": ["modern_industrialization:raw_platinum"],
+    "modern_industrialization:quartz_ore": ["minecraft:nether_quartz"],
+    "modern_industrialization:salt_ore": ["modern_industrialization:salt_dust"],
+    "modern_industrialization:tin_ore": ["modern_industrialization:raw_tin"],
+    "modern_industrialization:titanium_ore": ["modern_industrialization:raw_titanium"],
+    "modern_industrialization:tungsten_ore": ["modern_industrialization:raw_tungsten"],
+    "modern_industrialization:uranium_ore": ["modern_industrialization:raw_uranium"],
+
+    "modern_industrialization:deepslate_antimony_ore": ["modern_industrialization:raw_antimony"],
+    "modern_industrialization:deepslate_bauxite_ore": ["modern_industrialization:raw_bauxite"],
+    "modern_industrialization:deepslate_iridium_ore": ["modern_industrialization:raw_iridium"],
+    "modern_industrialization:deepslate_lead_ore": ["modern_industrialization:raw_lead"],
+    "modern_industrialization:deepslate_lignite_coal_ore": ["modern_industrialization:lignite_coal"],
+    "modern_industrialization:deepslate_monazite_ore": ["modern_industrialization:monazite_dust"],
+    "modern_industrialization:deepslate_nickel_ore": ["modern_industrialization:raw_nickel"],
+    "modern_industrialization:deepslate_salt_ore": ["modern_industrialization:salt_dust"],
+    "modern_industrialization:deepslate_tin_ore": ["modern_industrialization:raw_tin"],
+    "modern_industrialization:deepslate_titanium_ore": ["modern_industrialization:raw_titanium"],
+    "modern_industrialization:deepslate_tungsten_ore": ["modern_industrialization:raw_tungsten"],
+    "modern_industrialization:deepslate_uranium_ore": ["modern_industrialization:raw_uranium"],
+
+    "techreborn:cinnabar_ore": ["techreborn:cinnabar_dust", "minecraft:redstone"],
+    "techreborn:peridot_ore": ["techreborn:peridot_gem"],
+    "techreborn:pyrite_ore": ["techreborn:pyrite_dust"],
+    "techreborn:sodalite_ore": ["techreborn:sodalite_dust", "techreborn:aluminum_dust"],
+    "techreborn:sphalerite_ore": ["techreborn:sphalerite_dust", "techreborn:yellow_garnet_gem"],
+    "techreborn:tungsten_ore": ["techreborn:raw_tungsten"],
+
+    "techreborn:iridium_ore": ["techreborn:raw_iridium"],
+    "techreborn:lead_ore": ["techreborn:raw_lead"],
+    "techreborn:ruby_ore": ["techreborn:ruby_gem", "techreborn:red_garnet_gem"],
+    "techreborn:sapphire_ore": ["techreborn:sapphire_gem", "techreborn:peridot_gem"],
+    "techreborn:silver_ore": ["techreborn:raw_silver"],
+    "techreborn:tin_ore": ["techreborn:raw_tin"],
+
+    "techreborn:deepslate_iridium_ore": ["techreborn:raw_iridium"],
+    "techreborn:deepslate_lead_ore": ["techreborn:raw_lead"],
+    "techreborn:deepslate_ruby_ore": ["techreborn:ruby_gem", "techreborn:red_garnet_gem"],
+    "techreborn:deepslate_sapphire_ore": ["techreborn:sapphire_gem", "techreborn:peridot_gem"],
+    "techreborn:deepslate_silver_ore": ["techreborn:raw_silver"],
+    "techreborn:deepslate_tin_ore": ["techreborn:raw_tin"],
+
+    "tconstruct:cobalt_ore": ["tconstruct:raw_cobalt"]
+  },
+  "todo": [
+    "better nether ores (no REI data)"
+  ]
+}
