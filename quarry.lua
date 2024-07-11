@@ -1,5 +1,5 @@
 -- basic quarry using the nav system
--- ver: 0.1
+-- ver: 0.2
 
 -- Copyright (c) 2024 Aidan Yaklin
 --
@@ -33,10 +33,10 @@ local refuel_count = 32
 
 -- inventories (orientation relative to start position)
 local fuel_side = "S"
-local item_side = "E"
+local item_side = "W"
 
-local quarry_width = 16 -- width (perpendicular to the facing direction)
-local quarry_length = 16 -- length (along the facing direction)
+local quarry_width = 8 -- width (perpendicular to the facing direction)
+local quarry_length = 8 -- length (along the facing direction)
 local quarry_align = "left" -- alignment of the quarry relative to the home position (left/right)
 
 local save_file = "quarry_state.json"
@@ -139,7 +139,7 @@ local function tryMine(down)
     else
       if turtle.getItemSpace(i) > 0 then
         local item = turtle.getItemDetail(i)
-        for c_item in to_check do
+        for j, c_item in ipairs(to_check) do
           if c_item == item then
             found[item] = true
             break
@@ -149,10 +149,13 @@ local function tryMine(down)
     end
   end
   -- check if all items have space
-  for c_item in to_check do
-    if not found[c_item] then
-      has_space = false
-      break
+  if not has_space then
+    has_space = true
+    for j, c_item in ipairs(to_check) do
+      if not found[c_item] then
+        has_space = false
+        break
+      end
     end
   end
   if not has_space then
@@ -196,14 +199,14 @@ local function doQuarry()
     end
 
     local y = -pos[2] - 1
-    local xy = y*quarry_width + x
+    local xy = y*(quarry_width-1) + x
     -- move forward (to z=quarry_length) or backward (to z=0)
     local forward = (xy % 2) == 0
     local right = ((y % 2) == 0)
     local moveComplete = false
     if forward then
       nav.turnTo("N") -- ensure we don't try mining backwards
-      moveComplete = tryMoveTo("Z", -quarry_length)
+      moveComplete = tryMoveTo("Z", -quarry_length + 1)
     else
       nav.turnTo("S")
       moveComplete = tryMoveTo("Z", 0)
@@ -212,7 +215,7 @@ local function doQuarry()
     if moveComplete then
       -- if we're still here then we reached our forward/back target
       -- go right/left by 1
-      if (right and x >= quarry_width-1) then
+      if (right and x >= quarry_width-1) or (not right and x <= 0) then
         -- layer complete
         -- move down
         local mineRc = tryMine(true)
@@ -306,11 +309,11 @@ local function home3()
     doError("return blocked")
     return false
   end
-  if not tryMoveTo("X", saved_pos[1]) then
+  if not tryMoveTo("X", state.saved_pos[1]) then
     doError("return blocked")
     return false
   end
-  if not tryMoveTo("Z", saved_pos[3]) then
+  if not tryMoveTo("Z", state.saved_pos[3]) then
     doError("return blocked")
     return false
   end
@@ -319,7 +322,7 @@ end
 
 local function home4()
   -- go to saved Y
-  if not tryMoveTo("Y", saved_pos[2]) then
+  if not tryMoveTo("Y", state.saved_pos[2]) then
     doError("return blocked")
     return false
   end
@@ -389,6 +392,7 @@ end
 local function main()
   nav.init(nav_save_file)
   loadState()
+  loadOreDb()
 
   -- run the state machine in a loop
   -- until we hit an end condition
@@ -407,7 +411,8 @@ local function main()
         -- go home (1)
         print("home1")
         if not state.pos_is_saved then
-          state.saved_pos = nav.getPos()
+          local curr_pos = nav.getPos()
+          state.saved_pos = {curr_pos[1], curr_pos[2], curr_pos[3]}
           state.saved_dir = nav.getDir() 
           -- marker so that we don't overwrite the saved pos
           state.pos_is_saved = true
@@ -452,6 +457,9 @@ local function main()
       elseif state.go_home == 4 then
         print("home4")
         succ = home4()
+      elseif state.go_home == 5 then
+        state.go_home = -1 -- increments to 0
+        succ = true
       elseif state.go_home >= 103 then
         print("Quarry finished")
         return
@@ -459,6 +467,10 @@ local function main()
       -- in go-home sequence; incrment state
       state.go_home = state.go_home + 1
     end
-    saveState()
+    if succ then
+      saveState()
+    end
   end
 end
+
+main()
