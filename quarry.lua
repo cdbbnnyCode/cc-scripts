@@ -126,8 +126,8 @@ local function tryMine(down)
   -- check ore db
   local to_check = {block.name}
   local found = {}
-  if ore_db[block.name] ~= nil then
-    to_check = ore_db[block.name]
+  if ore_db.ores[block.name] ~= nil then
+    to_check = ore_db.ores[block.name]
   end
 
   -- check inventory
