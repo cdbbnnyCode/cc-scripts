@@ -140,8 +140,8 @@ local function tryMine(down)
       if turtle.getItemSpace(i) > 0 then
         local item = turtle.getItemDetail(i)
         for j, c_item in ipairs(to_check) do
-          if c_item == item then
-            found[item] = true
+          if c_item == item.name then
+            found[c_item] = true
             break
           end
         end
