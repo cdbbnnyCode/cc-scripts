@@ -465,7 +465,9 @@ local function main()
         return
       end
       -- in go-home sequence; incrment state
-      state.go_home = state.go_home + 1
+      if succ then
+        state.go_home = state.go_home + 1
+      end
     end
     if succ then
       saveState()
