@@ -1,7 +1,8 @@
 {
-  "version": "1.1",
+  "version": "1.2",
   "ores": {
     "minecraft:stone": ["minecraft:cobblestone"],
+    "minecraft:deepslate": ["minecraft:cobbled_deepslate"],
     "minecraft:coal_ore": ["minecraft:coal"],
     "minecraft:iron_ore": ["minecraft:raw_iron"],
     "minecraft:copper_ore": ["minecraft:raw_copper"],
@@ -89,6 +90,11 @@
 
     "tconstruct:cobalt_ore": ["tconstruct:raw_cobalt"]
   },
+  "not_ores": {
+    "minecraft:cobblestone": true,
+    "minecraft:deepslate": true
+  },
+
   "todo": [
     "better nether ores (no REI data)"
   ]
