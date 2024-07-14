@@ -23,7 +23,7 @@
 
 local json = require("json")
 
-local nav = { _version = "0.1" }
+local nav = { _version = "0.2" }
 
 -- anything greater than 4 is not a valid horizontal direction
 local dir_names = {"N", "W", "S", "E", "U", "D"}
@@ -317,6 +317,48 @@ nav.resetPos = function()
   nav_state.pos = {0, 0, 0}
   nav_state.dir = 1
   savePos()
+end
+
+nav.getUnitVec = function(dir)
+  if type(dir) == "string" then
+    dir = dir_indices[string.upper(dir)]
+  end
+  if dir == 1 then
+    return {0, 0, -1} -- N
+  elseif dir == 2 then
+    return {-1, 0, 0} -- W
+  elseif dir == 3 then
+    return {0, 0, 1}  -- S
+  elseif dir == 4 then
+    return {1, 0, 0}  -- E
+  elseif dir == 5 then
+    return {0, 1, 0}  -- U
+  elseif dir == 6 then
+    return {0, -1, 0} -- D
+  else
+    return nil
+  end
+end
+
+nav.getDirAxis = function(dir)
+   if type(dir) == "string" then
+    dir = dir_indices[string.upper(dir)]
+  end
+  if dir == 1 then
+    return "Z", -1
+  elseif dir == 2 then
+    return "X", -1
+  elseif dir == 3 then
+    return "Z", 1
+  elseif dir == 4 then
+    return "X", 1
+  elseif dir == 5 then
+    return "Y", 1
+  elseif dir == 6 then
+    return "Y", -1
+  else
+    return nil
+  end 
 end
 
 return nav

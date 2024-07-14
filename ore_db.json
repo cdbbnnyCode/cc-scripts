@@ -94,7 +94,12 @@
     "minecraft:cobblestone": true,
     "minecraft:deepslate": true
   },
-
+  "rare_ores": {
+    "minecraft:diamond_ore": true,
+    "minecraft:deepslate_diamond_ore": true,
+    "minecraft:emerald_ore": true,
+    "minecraft:deepslate_emerald_ore": true
+  },
   "todo": [
     "better nether ores (no REI data)"
   ]
