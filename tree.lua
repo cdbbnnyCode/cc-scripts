@@ -41,7 +41,8 @@ local max_data_points = 50
 local furnace_buildup_slow = 64
 local furnace_buildup_fast = 8
 -- how much charcoal to put back into the system per charcoal collected
-local furnace_fuel_factor = 1/5
+local furnace_fuel_factor = 1/10
+local furnace_wood_factor = 1/3
 -- how much extra fuel to keep in the inventory in case of emergency
 local fuel_to_keep = 16
 -- where to store extra fuel
@@ -672,12 +673,26 @@ local function distribute()
     return false
   end
 
+  local total_logs = 0
+  for i = 1,inv_slots do
+    if i ~= fuel_slot then
+      local stack = turtle.getItemDetail(i)
+      if stack ~= nil and stack.name == log_block then
+        total_logs = total_logs + stack.count
+      end
+    end
+  end
+  local to_send = math.ceil(total_logs * furnace_wood_factor)
+
+  local sent = 0
   for i = 1,inv_slots do
     if i ~= fuel_slot then
       local stack = turtle.getItemDetail(i)
       if stack ~= nil and stack.name == log_block then
         turtle.select(i)
-        turtle.dropUp()
+        local stack_part = math.min(stack.count, to_send - sent)
+        turtle.dropUp(stack_part)
+        sent = sent + stack_part
         if turtle.getItemCount() > 0 then
           -- if the whole stack wasn't pushed then the chest is full
           -- exit, the excess will go to the output storage
